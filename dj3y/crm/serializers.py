@@ -2,7 +2,7 @@
 
 # my import
 from rest_framework import serializers
-from rest_framework.validators import UniqueValidator
+from rest_framework.validators import UniqueTogetherValidator
 
 # my import which may grow during adding new models
 from .models import Person
@@ -29,3 +29,9 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
             'parent', 
             'related_salesperson',
         )
+        validators = [
+            UniqueTogetherValidator(
+                queryset=Person.objects.all(),
+                fields=['code', ]
+            )
+        ]
