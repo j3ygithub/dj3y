@@ -13,3 +13,9 @@ __pycache__/
 
 # Mac things
 /.DS_Store
+
+# Django things
+db.sqlite3
+*/migrations/*
+!*/migrations/__init__.py
+databases.py
