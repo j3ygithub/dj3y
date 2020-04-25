@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'dj3y.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-from .databases import MY_DATABASES
+from .my_databases import MY_DATABASES
 DATABASES = MY_DATABASES
 
 
