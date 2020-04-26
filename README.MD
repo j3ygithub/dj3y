@@ -16,5 +16,5 @@ add model-device
 2020/4/26 21:45
 make api browser url and delete work
 
-make django rest framework's urls.py apart from dj3y.ruls. (be defined in api.urls and be included in dj3y.urls)
-add serializers' field "url
+2020/4/27 00:17
+test commit on mac using github desktop
