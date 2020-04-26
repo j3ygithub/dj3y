@@ -4,4 +4,5 @@
 
 # important history:
 
-2020/4/26 12:41 after adjusting setting.py for leving the DATABASES a seperate .py file and adding some .gitignore configs
+2020/4/26 12:41 cb55b1
+adjust setting.py for leaving the DATABASES a seperate .py file and add some .gitignore configs
