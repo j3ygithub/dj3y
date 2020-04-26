@@ -13,5 +13,8 @@ update the requirement.txt
 2020/4/26 16:02
 add model-device
 
-2020/4/26 17:20
-a test update on mac
+2020/4/26 21:45
+make api browser url and delete work
+
+make django rest framework's urls.py apart from dj3y.ruls. (be defined in api.urls and be included in dj3y.urls)
+add serializers' field "url
