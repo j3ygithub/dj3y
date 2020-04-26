@@ -12,3 +12,6 @@ update the requirement.txt
 
 2020/4/26 16:02
 add model-device
+
+2020/4/26 17:20
+a test update on mac
