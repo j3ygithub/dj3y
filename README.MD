@@ -9,3 +9,6 @@ adjust setting.py for leaving the DATABASES a seperate .py file and add some .gi
 
 2020/4/26 11:52 940855
 update the requirement.txt
+
+2020/4/26 16:02
+add model-device
