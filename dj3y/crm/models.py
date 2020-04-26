@@ -15,10 +15,6 @@ from datetime import timedelta
 # my code.
 
 
-# a function using to get a upload-path. the file will be uploaded to '/app_label/model_name/' and will be named as 'filename'
-def get_directory_path(instance, filename):
-    return f"{instance._meta.app_label}/{instance._meta.model_name}/{filename}"
-
 # a function using to get a default expire time
 def get_default_expiration_time():
     return now() + timedelta(days=30)
@@ -36,7 +32,6 @@ class CrmBaseModel(models.Model):
     code = models.CharField(
         verbose_name='Code',
         max_length=50,
-        blank=True,
         unique=True,
     )
 
@@ -99,20 +94,6 @@ class Person(CrmBaseModel):
         verbose_name='Remark',
         blank=True,
         max_length=400,
-    )
-    # the related file field
-    related_file = models.FileField(
-        verbose_name='Related File',
-        blank=True,
-        null=True,
-        upload_to=get_directory_path,
-    )
-    # the related image field
-    related_image = models.ImageField(
-        verbose_name='Related Image',
-        blank=True,
-        null=True,
-        upload_to=get_directory_path,
     )
     # the foreign key fields
     parent = models.ForeignKey(
