@@ -14,7 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 # the default import
-from django.contrib import admin
 from django.urls import path, include
 
 # my import
@@ -27,7 +26,14 @@ from crm.views import DeviceViewSet
 # my code
 
 
+# Routers provide an easy way of automatically determining the URL conf.
+router = routers.DefaultRouter()
+router.register('person', PersonViewSet)
+router.register('device', DeviceViewSet)
+
+# Wire up our API using automatic URL routing.
+# Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('api.urls')),
+    path('browser/', include(router.urls)),
+    path('browser/', include('rest_framework.urls', namespace='rest_framework'))
 ]

@@ -15,6 +15,7 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Person
         fields = (
+            'url',
             'id',
             'code', 
             'name', 
@@ -34,6 +35,7 @@ class DeviceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Device
         fields = (
+            'url',
             'id',
             'code', 
             'name', 
