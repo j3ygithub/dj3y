@@ -21,8 +21,8 @@ from django.urls import path, include
 from rest_framework import routers
 
 # my import which may grow during adding new models
-from crm.models import Person
 from crm.views import PersonViewSet
+from crm.views import DeviceViewSet
 
 # my code
 
@@ -34,6 +34,7 @@ urlpatterns = [
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register('person', PersonViewSet)
+router.register('device', DeviceViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

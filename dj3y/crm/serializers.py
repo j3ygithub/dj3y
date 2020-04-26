@@ -5,16 +5,17 @@ from rest_framework import serializers
 
 # my import which may grow during adding new models
 from .models import Person
+from .models import Device
 
 # my code
 
 
-# serializers define the API representation.
 class PersonSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Person
         fields = (
+            'id',
             'code', 
             'name', 
             'tax_id', 
@@ -25,4 +26,25 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
             'remark', 
             'parent', 
             'related_salesperson',
+        )
+
+
+class DeviceSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Device
+        fields = (
+            'id',
+            'code', 
+            'name', 
+            'power_on', 
+            'os', 
+            'cpu', 
+            'ram',
+            'registration_time',
+            'expiration_time',
+            'vmware_tool_state',
+            'remark', 
+            'parent',
+            'customer',
         )
