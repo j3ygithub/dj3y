@@ -7,5 +7,5 @@
 2020/4/26 00:41 cb55b1
 adjust setting.py for leaving the DATABASES a seperate .py file and add some .gitignore configs
 
-2020/4/26 11:52
+2020/4/26 11:52 940855
 update the requirement.txt
