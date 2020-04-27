@@ -4,18 +4,15 @@ from django.db import models
 # my import
 from django.db.models.functions import Concat
 from django.db.models import Value
-from django.urls import reverse
-from django.utils.timezone import now
-from datetime import timedelta
+import uuid
 
 # my import which may grow during adding new models
 
 # my code.
 
 
-# a function using to get a default expire time
-def get_default_expiration_time():
-    return now() + timedelta(days=30)
+def get_default_code():
+    return uuid.uuid4().hex[:8]
 
 
 # a abstract model of main models
@@ -23,22 +20,20 @@ class CrmBaseModel(models.Model):
 
     # the PK field
     id = models.AutoField(
-        verbose_name='Serial Number',
+        verbose_name='ID',
         primary_key=True,
     )
     # the general fields
     code = models.CharField(
         verbose_name='Code',
-        max_length=50,
-        unique=True,
+        max_length=100,
+        default=get_default_code,
+        editable=False,
     )
 
     class Meta:
         abstract = True
         indexes = [models.Index(fields=['id'])]
-
-    def get_absolute_url(self):
-        return reverse(f'{self._meta.app_label}:{self._meta.model_name}_detail', args=[str(self.id)])
 
     def __str__(self):
         return self.code
@@ -68,6 +63,11 @@ class Person(CrmBaseModel):
         blank=True,
         max_length=100,
     )
+    age = models.IntegerField(
+        verbose_name='Age',
+        blank=True,
+        null=True,
+    )
     registration_time = models.DateTimeField(
         verbose_name='Registration Time',
         blank=True,
@@ -90,7 +90,7 @@ class Person(CrmBaseModel):
         null=True,
         to='Person',
         on_delete=models.CASCADE,
-        related_name='%(app_label)s_%(model_name)s_parent_set',
+        related_name='whose_%(app_label)s_%(model_name)s_parent',
     )
     # the many to many fields
     related_salesperson = models.ManyToManyField(
@@ -98,7 +98,7 @@ class Person(CrmBaseModel):
         blank=True,
         to='Person',
         symmetrical=False,
-        related_name='%(app_label)s_%(model_name)s_related_salesperson_set',
+        related_name='whose_%(app_label)s_%(model_name)s_related_salesperson',
     )
 
     class Meta(CrmBaseModel.Meta):
@@ -131,9 +131,10 @@ class Device(CrmBaseModel):
         blank=True,
         max_length=100,
     )
-    power_on = models.BooleanField(
-        verbose_name='Power on',
+    power_state = models.CharField(
+        verbose_name='Power State',
         blank=True,
+        max_length=25,
     )
     os = models.CharField(
         verbose_name='OS',
@@ -177,7 +178,7 @@ class Device(CrmBaseModel):
         null=True,
         to='Device',
         on_delete=models.CASCADE,
-        related_name='%(app_label)s_%(model_name)s_parent_set',
+        related_name='whose_%(app_label)s_%(model_name)s_parent',
     )
     customer = models.ForeignKey(
         verbose_name='Customer',
@@ -185,7 +186,7 @@ class Device(CrmBaseModel):
         null=True,
         to='Person',
         on_delete=models.CASCADE,
-        related_name='%(app_label)s_%(model_name)s_customer_set',
+        related_name='whose_%(app_label)s_%(model_name)s_customer',
     )
 
     class Meta(CrmBaseModel.Meta):
