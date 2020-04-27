@@ -1,18 +1,20 @@
 # A project about CRM powered by Django and Vue
 
-### python version: 3.7.7
+## python version: 3.7.7
 
-### using: Django, DRF and Vue
+## using: Django, DRF and Vue
 
-### important history:
+## important history:
 
-###### 2020/4/26 00:41 cb55b1
+
+
+### 2020/4/26 00:41 cb55b1
 adjust setting.py for leaving the DATABASES a seperate .py file and add some .gitignore configs
 
-##### 2020/4/26 11:52 940855
+### 2020/4/26 11:52 940855
 update the requirement.txt
 
-#### 2020/4/26 16:02
+### 2020/4/26 16:02
 add model-device
 
 ### 2020/4/26 21:45
