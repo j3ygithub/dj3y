@@ -4,8 +4,8 @@
 from rest_framework import serializers
 
 # my import which may grow during adding new models
-from .models import Person
-from .models import Device
+from crm.models import Person
+from crm.models import Device
 
 # my code
 

@@ -20,8 +20,8 @@ from django.urls import path, include
 from rest_framework import routers
 
 # my import which may grow during adding new models
-from crm.views import PersonViewSet
-from crm.views import DeviceViewSet
+from .views import PersonViewSet
+from .views import DeviceViewSet
 
 # my code
 
