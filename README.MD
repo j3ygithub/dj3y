@@ -1,7 +1,9 @@
 # This is a project about CRM
 
 python version: 3.7.7
+
 using: Django, DRF and Vue
+
 important history:
 
 2020/4/26 00:41 cb55b1
