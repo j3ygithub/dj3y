@@ -1,6 +1,6 @@
 # A project about CRM powered by Django and Vue
-## python version: 3.7.7, using: Django, DRF and Vue
-# important history:
+# python version: 3.7.7, using: Django, DRF and Vue
+# History:
 ### 2020/4/28 09:53
 try reverting commit by github desktop, create database.7z
 ### 2020/4/27 00:19
