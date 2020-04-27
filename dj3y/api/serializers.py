@@ -10,12 +10,13 @@ from crm.models import Device
 # my code
 
 
-class PersonSerializer(serializers.HyperlinkedModelSerializer):
+class PersonSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Person
         fields = (
             'url',
+            'id',
             'code',
             'name',
             'tax_id',
@@ -30,12 +31,13 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
         )
 
 
-class DeviceSerializer(serializers.HyperlinkedModelSerializer):
+class DeviceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Device
         fields = (
             'url',
+            'id',
             'code',
             'name',
             'power_state',
