@@ -5,8 +5,6 @@ from django.db import models
 from django.db.models.functions import Concat
 from django.db.models import Value
 from django.urls import reverse
-import uuid
-from django.core.exceptions import ValidationError
 from django.utils.timezone import now
 from datetime import timedelta
 
@@ -44,16 +42,6 @@ class CrmBaseModel(models.Model):
 
     def __str__(self):
         return self.code
-
-    # this uses uuid.uuid4() to generate field 'code' automatically
-    # doing this in clean() instead of in save() so that when getting duplicate value
-    # the error message would show like a normal message on webpage
-    # instead of a error exception leading crash.
-    def clean(self):
-        if self.code == '':
-            self.code = f'{self._meta.verbose_name[0:3]}. {uuid.uuid4().hex[:6]}'
-            if type(self).objects.filter(code=self.code).exists():
-                raise ValidationError('You got a duplicate code, please save again.')
 
 
 # a main model
