@@ -90,7 +90,7 @@ class Person(CrmBaseModel):
         null=True,
         to='Person',
         on_delete=models.CASCADE,
-        related_name='whose_%(app_label)s_%(model_name)s_parent',
+        related_name='whose_%(model_name)s_parent',
     )
     # the many to many fields
     related_salesperson = models.ManyToManyField(
@@ -98,7 +98,7 @@ class Person(CrmBaseModel):
         blank=True,
         to='Person',
         symmetrical=False,
-        related_name='whose_%(app_label)s_%(model_name)s_related_salesperson',
+        related_name='whose_%(model_name)s_related_salesperson',
     )
 
     class Meta(CrmBaseModel.Meta):
@@ -178,7 +178,7 @@ class Device(CrmBaseModel):
         null=True,
         to='Device',
         on_delete=models.CASCADE,
-        related_name='whose_%(app_label)s_%(model_name)s_parent',
+        related_name='whose_%(model_name)s_parent',
     )
     customer = models.ForeignKey(
         verbose_name='Customer',
@@ -186,7 +186,7 @@ class Device(CrmBaseModel):
         null=True,
         to='Person',
         on_delete=models.CASCADE,
-        related_name='whose_%(app_label)s_%(model_name)s_customer',
+        related_name='whose_%(model_name)s_customer',
     )
 
     class Meta(CrmBaseModel.Meta):

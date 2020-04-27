@@ -28,8 +28,8 @@ from .views import DeviceViewSet
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register('crm/person', PersonViewSet)
-router.register('crm/device', DeviceViewSet)
+router.register('person', PersonViewSet)
+router.register('device', DeviceViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
