@@ -31,9 +31,6 @@ router_crm = routers.DefaultRouter()
 router_crm.register('person', PersonViewSet)
 router_crm.register('device', DeviceViewSet)
 
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('crm/', include((router_crm.urls, 'crm'), namespace='api')),
-    path('auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('', include((router_crm.urls, 'crm'))),
 ]

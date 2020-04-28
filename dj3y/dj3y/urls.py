@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 # my import
-from rest_framework import routers
 
 # my import which may grow during adding new models
 
@@ -27,5 +26,7 @@ from rest_framework import routers
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls')),
+    path('api/', include(('api.urls', 'api'))),
+    # this provides us with login/, logout/ urlpatterns and the correspond views of them
+    path('api/', include(('rest_framework.urls', 'rest_framework'))),
 ]

@@ -30,7 +30,7 @@ class PersonSerializer(serializers.ModelSerializer):
             'related_salesperson',
         )
         extra_kwargs = {
-            'url': {'view_name': 'crm:person-detail'}
+            'url': {'view_name': 'api:crm:person-detail'}
         }
 
 
@@ -54,3 +54,6 @@ class DeviceSerializer(serializers.ModelSerializer):
             'parent',
             'customer',
         )
+        extra_kwargs = {
+            'url': {'view_name': 'api:crm:device-detail'}
+        }
