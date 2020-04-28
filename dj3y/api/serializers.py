@@ -29,6 +29,9 @@ class PersonSerializer(serializers.ModelSerializer):
             'parent',
             'related_salesperson',
         )
+        extra_kwargs = {
+            'url': {'view_name': 'crm:person-detail'}
+        }
 
 
 class DeviceSerializer(serializers.ModelSerializer):
