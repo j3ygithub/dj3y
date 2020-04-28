@@ -11,7 +11,7 @@ from crm.models import Device
 
 
 class PersonSerializer(serializers.ModelSerializer):
-    
+
     class Meta:
         model = Person
         fields = (
@@ -25,7 +25,6 @@ class PersonSerializer(serializers.ModelSerializer):
             'registration_time',
             'expiration_time',
             'remark',
-            'age',
             'parent',
             'related_salesperson',
         )

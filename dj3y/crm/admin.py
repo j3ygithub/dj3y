@@ -10,5 +10,6 @@ from .models import Device
 
 # Register your models here.
 
+
 admin.site.register(Person)
 admin.site.register(Device)

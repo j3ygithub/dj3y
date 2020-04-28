@@ -35,9 +35,6 @@ class CrmBaseModel(models.Model):
         abstract = True
         indexes = [models.Index(fields=['id'])]
 
-    def __str__(self):
-        return self.code
-
 
 # a main model
 class Person(CrmBaseModel):
@@ -63,11 +60,6 @@ class Person(CrmBaseModel):
         blank=True,
         max_length=100,
     )
-    age = models.IntegerField(
-        verbose_name='Age',
-        blank=True,
-        null=True,
-    )
     registration_time = models.DateTimeField(
         verbose_name='Registration Time',
         blank=True,
@@ -78,7 +70,7 @@ class Person(CrmBaseModel):
         blank=True,
         null=True,
     )
-    remark = models.TextField(
+    remark = models.CharField(
         verbose_name='Remark',
         blank=True,
         max_length=400,
@@ -141,12 +133,12 @@ class Device(CrmBaseModel):
         blank=True,
         max_length=50,
     )
-    cpu = models.SmallIntegerField(
+    cpu = models.IntegerField(
         verbose_name='CPU',
         blank=True,
         null=True,
     )
-    ram = models.SmallIntegerField(
+    ram = models.IntegerField(
         verbose_name='RAM (GB)',
         blank=True,
         null=True,
