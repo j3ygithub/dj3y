@@ -76,8 +76,16 @@ WSGI_APPLICATION = 'dj3y.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-from .my_databases import MY_DATABASES
-DATABASES = MY_DATABASES
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dj3ydb',
+        'USER': 'admin',
+        'PASSWORD': '20180105',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
 
 
 # Password validation
